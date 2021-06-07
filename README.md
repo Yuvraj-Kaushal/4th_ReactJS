@@ -4,7 +4,7 @@ My fourth ReactJS repo. It's all about simple animation with framer-motion.
 
 View it here - https://Yuvraj-Kaushal.github.io/4th_ReactJS/
 
-You can also you framer-motion by typing the command below in your terminal
+You can also use framer-motion by typing the command below in your terminal
 
 Command - npm install framer-motion
 
