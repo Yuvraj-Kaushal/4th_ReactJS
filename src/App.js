@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { useState } from "react";
+import { motion, AnimateSharedLayout } from "framer-motion";
+import { data } from "./MyData.js";
+import {} from "./style.css";
+ 
+export default function App() {
+  const [selected, setSelected] = useState(0);
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AnimateSharedLayout>
+      <div>
+      <marquee>Tap/Click the words.</marquee>
     </div>
+      <ol style={{ transform: "translateZ(0)" }}>
+        {data.map(({ title, color }, i) => (
+          <motion.li
+            animate
+            key={i}
+            className={`title ${i === selected && "selected"}`}
+            style={{ color: i === selected ? color : "Black" }}
+            onClick={() => setSelected(i)}
+          >
+            {i === selected && (
+              <motion.div
+                style={{ backgroundColor: color }}
+              />
+            )}
+            {title}
+          </motion.li>
+        ))}
+      </ol>
+    </AnimateSharedLayout>
   );
 }
-
-export default App;
